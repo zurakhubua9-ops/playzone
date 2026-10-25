@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLAYZONE | Entertainment Center</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a href="#home" class="logo">PLAY<span>ZONE</span></a>
+
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#activities">Activities</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#booking">Booking</a>
+        </nav>
+
+        <a href="#booking" class="nav-btn">Book Now</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container hero-content">
+          <p class="eyebrow">WELCOME TO PLAYZONE</p>
+
+          <h1>Your Adventure <span>Starts Here.</span></h1>
+
+          <p class="hero-description">
+            Discover the ultimate entertainment destination. Choose your
+            favorite activities, book your spot, and create unforgettable
+            memories with friends.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#activities" class="primary-btn"> Explore Activities </a>
+            <a href="#booking" class="secondary-btn"> Book Your Experience </a>
+          </div>
+
+          <div class="hero-stats">
+            <div>
+              <strong>3</strong>
+              <span>Activities</span>
+            </div>
+            <div>
+              <strong>10</strong>
+              <span>Guests Per Booking</span>
+            </div>
+            <div>
+              <strong>7/7</strong>
+              <span>Days of Fun</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="activities" class="section">
+        <div class="container">
+          <p class="eyebrow">OUR ACTIVITIES</p>
+          <h2>Choose Your <span>Adventure</span></h2>
+          <p class="section-description">
+            Three exciting experiences. One amazing destination.
+          </p>
+
+          <div class="cards">
+            <article class="activity-card">
+              <div class="card-image bowling">🎳</div>
+              <div class="card-content">
+                <h3>Bowling</h3>
+                <p>
+                  Challenge your friends, hit the lanes, and enjoy the perfect
+                  game.
+                </p>
+                <div class="card-bottom">
+                  <strong>25 GEL <small>/ person</small></strong>
+                  <button class="choose-btn" data-activity="bowling">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="activity-card">
+              <div class="card-image vr">🥽</div>
+              <div class="card-content">
+                <h3>VR Experience</h3>
+                <p>
+                  Step into another world and explore the future of
+                  entertainment.
+                </p>
+                <div class="card-bottom">
+                  <strong>35 GEL <small>/ person</small></strong>
+                  <button class="choose-btn" data-activity="vr">Select</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="activity-card">
+              <div class="card-image karting">🏎️</div>
+              <div class="card-content">
+                <h3>Karting</h3>
+                <p>
+                  Feel the adrenaline, race your friends, and experience pure
+                  excitement.
+                </p>
+                <div class="card-bottom">
+                  <strong>40 GEL <small>/ person</small></strong>
+                  <button class="choose-btn" data-activity="karting">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+<!-- PHOTO GALLERY -->
+
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <p class="eyebrow">EXPLORE PLAYZONE</p>
+
+    <div class="gallery-heading">
+      <div>
+        <h2>Inside the <span>Experience</span></h2>
+        <p class="section-description">
+          Get a closer look at the excitement waiting for you.
+        </p>
+      </div>
+
+      <span class="gallery-label">THE PLAYZONE EXPERIENCE</span>
+    </div>
+
+    <div class="gallery-grid">
+      <button class="gallery-item gallery-large" type="button"
+              data-gallery-index="0">
+        <img
+          src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&q=85"
+          alt="Gaming entertainment experience"
+          loading="lazy"
+        >
+        <span class="gallery-caption">
+          <strong>Ultimate Entertainment</strong>
+          <small>Explore the experience</small>
+        </span>
+      </button>
+
+      <button class="gallery-item" type="button"
+              data-gallery-index="1">
+        <img
+          src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=900&q=85"
+          alt="Immersive VR experience"
+          loading="lazy"
+        >
+        <span class="gallery-caption">
+          <strong>Virtual Reality</strong>
+          <small>Discover new worlds</small>
+        </span>
+      </button>
+
+      <button class="gallery-item" type="button"
+              data-gallery-index="2">
+        <img
+          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=85"
+          alt="Entertainment activity"
+          loading="lazy"
+        >
+        <span class="gallery-caption">
+          <strong>Unforgettable Moments</strong>
+          <small>Experience the excitement</small>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY LIGHTBOX -->
+
+<div id="galleryLightbox" class="gallery-lightbox hidden"
+     role="dialog" aria-modal="true"
+     aria-label="Photo gallery">
+
+  <button id="galleryClose" class="lightbox-close"
+          type="button" aria-label="Close gallery">
+    &times;
+  </button>
+
+  <button id="galleryPrev" class="lightbox-arrow lightbox-prev"
+          type="button" aria-label="Previous photo">
+    &#10094;
+  </button>
+
+  <div class="lightbox-content">
+    <img id="lightboxImage" src="" alt="">
+    <p id="lightboxCaption"></p>
+    <span id="lightboxCounter"></span>
+  </div>
+
+  <button id="galleryNext" class="lightbox-arrow lightbox-next"
+          type="button" aria-label="Next photo">
+    &#10095;
+  </button>
+</div>
+
+
+      <section id="booking" class="section booking-section">
+        <div class="container">
+          <p class="eyebrow">BOOK YOUR EXPERIENCE</p>
+          <h2>Make Your <span>Reservation</span></h2>
+          <p class="section-description">
+            Choose your activity, date, and number of guests.
+          </p>
+
+          <div class="booking-layout">
+            <form id="bookingForm" class="booking-form">
+              <h3>Booking Details</h3>
+
+              <label for="fullName">Full Name</label>
+              <input
+                id="fullName"
+                type="text"
+                placeholder="Enter your full name"
+                required
+              />
+
+              <label for="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="example@gmail.com"
+                required
+              />
+
+              <label for="activity">Select Activity</label>
+              <select id="activity" required>
+                <option value="bowling">Bowling — 25 GEL</option>
+                <option value="vr">VR Experience — 35 GEL</option>
+                <option value="karting">Karting — 40 GEL</option>
+              </select>
+
+              <div class="form-row">
+                <div>
+                  <label for="date">Select Date</label>
+                  <input id="date" type="date" required />
+                </div>
+
+                <div>
+                  <label for="time">Select Time</label>
+                  <select id="time" required>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="16:00">04:00 PM</option>
+                    <option value="18:00">06:00 PM</option>
+                    <option value="20:00">08:00 PM</option>
+                  </select>
+                </div>
+              </div>
+
+              <label for="people">Number of Guests</label>
+              <input
+                id="people"
+                type="number"
+                min="1"
+                max="10"
+                value="1"
+                required
+              />
+
+              <button type="submit" class="primary-btn submit-btn">
+                Confirm Booking
+              </button>
+            </form>
+
+            <aside class="summary">
+              <h3>Booking Summary</h3>
+
+              <div class="summary-line">
+                <span>Activity</span>
+                <strong id="summaryActivity">Bowling</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>Price Per Person</span>
+                <strong id="summaryPrice">25 GEL</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>Guests</span>
+                <strong id="summaryPeople">1</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>Date</span>
+                <strong id="summaryDate">Not Selected</strong>
+              </div>
+
+              <hr />
+
+              <div class="summary-total">
+                <span>Total Price</span>
+                <strong id="totalPrice">25 GEL</strong>
+              </div>
+
+              <p class="summary-note">
+                This is a demo booking. No real payment will be processed.
+              </p>
+            </aside>
+          </div>
+
+          <div id="ticket" class="ticket hidden" aria-live="polite">
+            <div class="ticket-icon">🎟️</div>
+            <h3>Booking Confirmed!</h3>
+            <p>Your Demo Electronic Ticket</p>
+
+            <div id="ticketDetails"></div>
+
+            <button id="printTicket" class="secondary-btn" type="button">
+              Print Ticket
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <a href="#home" class="logo">PLAY<span>ZONE</span></a>
+        <p>© 2026 PLAYZONE. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+
+<div id="activityModal" class="modal hidden" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle">
+
+  <div class="modal-overlay"></div>
+
+  <div class="modal-content">
+    <button id="closeModal" class="modal-close"
+            type="button" aria-label="Close dialog">
+      &times;
+    </button>
+
+    <div id="modalImage" class="modal-image"></div>
+
+    <div class="modal-body">
+      <p class="eyebrow">THE EXPERIENCE</p>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+
+      <div class="modal-details">
+        <div>
+          <span>Duration</span>
+          <strong id="modalDuration"></strong>
+        </div>
+        <div>
+          <span>Guests</span>
+          <strong id="modalGuests"></strong>
+        </div>
+        <div>
+          <span>Price</span>
+          <strong id="modalPrice"></strong>
+        </div>
+      </div>
+
+      <button id="modalBook" class="primary-btn"
+              type="button">
+        Book This Experience
+      </button>
+    </div>
+  </div>
+</div>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
