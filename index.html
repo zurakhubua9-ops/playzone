@@ -1,383 +1,854 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PLAYZONE | Entertainment Center</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container nav">
-        <a href="#home" class="logo">PLAY<span>ZONE</span></a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b16">
+  <meta name="description" content="PLAYZONE — immersive entertainment, great experiences and easy online reservations.">
+  <title>PLAYZONE — Play Beyond Ordinary</title>
 
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#activities">Activities</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#booking">Booking</a>
-        </nav>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <a href="#booking" class="nav-btn">Book Now</a>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="PLAYZONE home">
+        <span class="brand-mark">✳</span>
+        PLAY<span>ZONE</span>
+      </a>
+
+      <button
+        class="mobile-menu"
+        id="menuButton"
+        type="button"
+        aria-label="Toggle menu"
+        aria-controls="primaryNav"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="nav" id="primaryNav" aria-label="Main navigation">
+        <a href="#experiences">Experiences</a>
+        <a href="#offers">Offers</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#events">Events</a>
+        <a href="#bookings">My bookings</a>
+      </nav>
+
+      <a class="button button-small" href="#booking">
+        Book now <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+     <div class="hero-photo">
+      <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1800&q=85"
+      aria-hidden="true"
+  >
+        <source src="assets/videos/hero.mp4" type="video/mp4">
+        </video>
       </div>
-    </header>
 
-    <main>
-      <section id="home" class="hero">
-        <div class="container hero-content">
-          <p class="eyebrow">WELCOME TO PLAYZONE</p>
+      <div class="hero-shade"></div>
 
-          <h1>Your Adventure <span>Starts Here.</span></h1>
-
-          <p class="hero-description">
-            Discover the ultimate entertainment destination. Choose your
-            favorite activities, book your spot, and create unforgettable
-            memories with friends.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#activities" class="primary-btn"> Explore Activities </a>
-            <a href="#booking" class="secondary-btn"> Book Your Experience </a>
-          </div>
-
-          <div class="hero-stats">
-            <div>
-              <strong>3</strong>
-              <span>Activities</span>
-            </div>
-            <div>
-              <strong>10</strong>
-              <span>Guests Per Booking</span>
-            </div>
-            <div>
-              <strong>7/7</strong>
-              <span>Days of Fun</span>
-            </div>
-          </div>
+      <div class="shell hero-inner">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          YOUR NEXT EXPERIENCE STARTS HERE
         </div>
-      </section>
 
-      <section id="activities" class="section">
-        <div class="container">
-          <p class="eyebrow">OUR ACTIVITIES</p>
-          <h2>Choose Your <span>Adventure</span></h2>
-          <p class="section-description">
-            Three exciting experiences. One amazing destination.
-          </p>
+        <h1>
+          PLAY<br>
+          <em>BEYOND</em><br>
+          ORDINARY<span class="hero-period">.</span>
+        </h1>
 
-          <div class="cards">
-            <article class="activity-card">
-              <div class="card-image bowling">🎳</div>
-              <div class="card-content">
-                <h3>Bowling</h3>
-                <p>
-                  Challenge your friends, hit the lanes, and enjoy the perfect
-                  game.
-                </p>
-                <div class="card-bottom">
-                  <strong>25 GEL <small>/ person</small></strong>
-                  <button class="choose-btn" data-activity="bowling">
-                    Select
-                  </button>
-                </div>
-              </div>
-            </article>
+        <p>
+          Electric moments. Unforgettable nights.
+          Three ways to play, one place to make memories.
+        </p>
 
-            <article class="activity-card">
-              <div class="card-image vr">🥽</div>
-              <div class="card-content">
-                <h3>VR Experience</h3>
-                <p>
-                  Step into another world and explore the future of
-                  entertainment.
-                </p>
-                <div class="card-bottom">
-                  <strong>35 GEL <small>/ person</small></strong>
-                  <button class="choose-btn" data-activity="vr">Select</button>
-                </div>
-              </div>
-            </article>
+        <div class="hero-actions">
+          <a class="button" href="#experiences">
+            Explore experiences <span>↗</span>
+          </a>
 
-            <article class="activity-card">
-              <div class="card-image karting">🏎️</div>
-              <div class="card-content">
-                <h3>Karting</h3>
-                <p>
-                  Feel the adrenaline, race your friends, and experience pure
-                  excitement.
-                </p>
-                <div class="card-bottom">
-                  <strong>40 GEL <small>/ person</small></strong>
-                  <button class="choose-btn" data-activity="karting">
-                    Select
-                  </button>
-                </div>
-              </div>
-            </article>
-          </div>
+          <a class="button button-outline" href="#booking">
+            Reserve your spot
+          </a>
         </div>
-      </section>
 
+        <div class="hero-bottom">
+          <span>01 / THE EXPERIENCE</span>
+          <span>SCROLL TO EXPLORE ↓</span>
+        </div>
+      </div>
+    </section>
 
-<!-- PHOTO GALLERY -->
-
-<section id="gallery" class="section gallery-section">
-  <div class="container">
-    <p class="eyebrow">EXPLORE PLAYZONE</p>
-
-    <div class="gallery-heading">
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
       <div>
-        <h2>Inside the <span>Experience</span></h2>
-        <p class="section-description">
-          Get a closer look at the excitement waiting for you.
+        GOOD VIBES ✳ BIG ENERGY ✳ UNLIMITED FUN ✳
+        GOOD VIBES ✳ BIG ENERGY ✳ UNLIMITED FUN ✳
+      </div>
+    </div>
+
+    <!-- EXPERIENCES -->
+    <section class="section shell" id="experiences">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">01 / EXPERIENCES</span>
+          <h2>
+            Find your<br>
+            <em>kind of fun.</em>
+          </h2>
+        </div>
+
+        <p>
+          Bring your people. We'll bring the energy.
+          Discover an experience worth showing up for.
         </p>
       </div>
 
-      <span class="gallery-label">THE PLAYZONE EXPERIENCE</span>
-    </div>
+      <div class="experience-grid" id="experienceCards"></div>
+    </section>
 
-    <div class="gallery-grid">
-      <button class="gallery-item gallery-large" type="button"
-              data-gallery-index="0">
-        <img
-          src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&q=85"
-          alt="Gaming entertainment experience"
-          loading="lazy"
-        >
-        <span class="gallery-caption">
-          <strong>Ultimate Entertainment</strong>
-          <small>Explore the experience</small>
-        </span>
-      </button>
+    <!-- OFFERS -->
+    <section class="section section-dark" id="offers">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <span class="kicker">02 / SPECIAL OFFERS</span>
+            <h2>
+              More play.<br>
+              <em>Less pay.</em>
+            </h2>
+          </div>
 
-      <button class="gallery-item" type="button"
-              data-gallery-index="1">
-        <img
-          src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=900&q=85"
-          alt="Immersive VR experience"
-          loading="lazy"
-        >
-        <span class="gallery-caption">
-          <strong>Virtual Reality</strong>
-          <small>Discover new worlds</small>
-        </span>
-      </button>
-
-      <button class="gallery-item" type="button"
-              data-gallery-index="2">
-        <img
-          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=85"
-          alt="Entertainment activity"
-          loading="lazy"
-        >
-        <span class="gallery-caption">
-          <strong>Unforgettable Moments</strong>
-          <small>Experience the excitement</small>
-        </span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY LIGHTBOX -->
-
-<div id="galleryLightbox" class="gallery-lightbox hidden"
-     role="dialog" aria-modal="true"
-     aria-label="Photo gallery">
-
-  <button id="galleryClose" class="lightbox-close"
-          type="button" aria-label="Close gallery">
-    &times;
-  </button>
-
-  <button id="galleryPrev" class="lightbox-arrow lightbox-prev"
-          type="button" aria-label="Previous photo">
-    &#10094;
-  </button>
-
-  <div class="lightbox-content">
-    <img id="lightboxImage" src="" alt="">
-    <p id="lightboxCaption"></p>
-    <span id="lightboxCounter"></span>
-  </div>
-
-  <button id="galleryNext" class="lightbox-arrow lightbox-next"
-          type="button" aria-label="Next photo">
-    &#10095;
-  </button>
-</div>
-
-
-      <section id="booking" class="section booking-section">
-        <div class="container">
-          <p class="eyebrow">BOOK YOUR EXPERIENCE</p>
-          <h2>Make Your <span>Reservation</span></h2>
-          <p class="section-description">
-            Choose your activity, date, and number of guests.
+          <p>
+            Good times are even better together.
+            Pick an offer and we'll apply it to your booking.
           </p>
+        </div>
 
-          <div class="booking-layout">
-            <form id="bookingForm" class="booking-form">
-              <h3>Booking Details</h3>
+        <div class="offers-grid" id="offerCards"></div>
+      </div>
+    </section>
 
-              <label for="fullName">Full Name</label>
+    <!-- GALLERY -->
+    <section class="section shell" id="gallery">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">03 / THE ATMOSPHERE</span>
+          <h2>
+            See the<br>
+            <em>energy.</em>
+          </h2>
+        </div>
+
+        <p>
+          A glimpse of the world we're creating.
+          These are demo visuals; venue photography will replace them.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="section section-dark" id="events">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <span class="kicker">04 / WHAT'S ON</span>
+            <h2>
+              Make it<br>
+              <em>a moment.</em>
+            </h2>
+          </div>
+
+          <p>
+            Gather your crew for something special.
+            Demo events are not actual scheduled sessions.
+          </p>
+        </div>
+
+        <div class="event-grid" id="eventCards"></div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section booking-section shell" id="booking">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">05 / RESERVE</span>
+          <h2>
+            Ready to<br>
+            <em>get in?</em>
+          </h2>
+        </div>
+
+        <p>
+          Choose your adventure and lock in a demo reservation.
+          No payment is taken or email sent.
+        </p>
+      </div>
+
+      <div class="booking-layout">
+
+        <!-- BOOKING FORM -->
+        <form class="booking-form" id="bookingForm">
+
+          <div class="form-title">
+            <span class="step-badge">01</span>
+            <h3>Your details</h3>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              Full name
+
               <input
                 id="fullName"
+                name="fullName"
                 type="text"
-                placeholder="Enter your full name"
+                autocomplete="name"
+                maxlength="100"
+                placeholder="Your full name"
                 required
-              />
+              >
+            </label>
 
-              <label for="email">Email Address</label>
+            <label>
+              Email address
+
               <input
                 id="email"
+                name="email"
                 type="email"
-                placeholder="example@gmail.com"
+                autocomplete="email"
+                maxlength="150"
+                placeholder="you@example.com"
                 required
-              />
+              >
+            </label>
+          </div>
 
-              <label for="activity">Select Activity</label>
-              <select id="activity" required>
-                <option value="bowling">Bowling — 25 GEL</option>
-                <option value="vr">VR Experience — 35 GEL</option>
-                <option value="karting">Karting — 40 GEL</option>
-              </select>
+          <div class="form-title form-title-gap">
+            <span class="step-badge">02</span>
+            <h3>Choose your experience</h3>
+          </div>
 
-              <div class="form-row">
-                <div>
-                  <label for="date">Select Date</label>
-                  <input id="date" type="date" required />
-                </div>
+          <label>
+            Experience
+            <select id="activity" name="activity" required></select>
+          </label>
 
-                <div>
-                  <label for="time">Select Time</label>
-                  <select id="time" required>
-                    <option value="10:00">10:00 AM</option>
-                    <option value="12:00">12:00 PM</option>
-                    <option value="14:00">02:00 PM</option>
-                    <option value="16:00">04:00 PM</option>
-                    <option value="18:00">06:00 PM</option>
-                    <option value="20:00">08:00 PM</option>
-                  </select>
-                </div>
-              </div>
+          <div class="form-grid three">
+            <label>
+              Date
 
-              <label for="people">Number of Guests</label>
+              <input
+                id="date"
+                name="date"
+                type="date"
+                required
+              >
+            </label>
+
+            <label>
+              Time
+
+              <select
+                id="time"
+                name="time"
+                required
+              ></select>
+            </label>
+
+            <label>
+              Guests
+
               <input
                 id="people"
+                name="people"
                 type="number"
                 min="1"
                 max="10"
                 value="1"
                 required
-              />
-
-              <button type="submit" class="primary-btn submit-btn">
-                Confirm Booking
-              </button>
-            </form>
-
-            <aside class="summary">
-              <h3>Booking Summary</h3>
-
-              <div class="summary-line">
-                <span>Activity</span>
-                <strong id="summaryActivity">Bowling</strong>
-              </div>
-
-              <div class="summary-line">
-                <span>Price Per Person</span>
-                <strong id="summaryPrice">25 GEL</strong>
-              </div>
-
-              <div class="summary-line">
-                <span>Guests</span>
-                <strong id="summaryPeople">1</strong>
-              </div>
-
-              <div class="summary-line">
-                <span>Date</span>
-                <strong id="summaryDate">Not Selected</strong>
-              </div>
-
-              <hr />
-
-              <div class="summary-total">
-                <span>Total Price</span>
-                <strong id="totalPrice">25 GEL</strong>
-              </div>
-
-              <p class="summary-note">
-                This is a demo booking. No real payment will be processed.
-              </p>
-            </aside>
+              >
+            </label>
           </div>
 
-          <div id="ticket" class="ticket hidden" aria-live="polite">
-            <div class="ticket-icon">🎟️</div>
-            <h3>Booking Confirmed!</h3>
-            <p>Your Demo Electronic Ticket</p>
+          <div class="premium-calendar" id="premiumCalendar">
+  <div class="calendar-header">
+    <div>
+      <span class="calendar-label">SELECT YOUR DATE</span>
+      <h3 id="calendarMonth"></h3>
+    </div>
 
-            <div id="ticketDetails"></div>
+    <div class="calendar-navigation">
+      <button
+        type="button"
+        id="calendarPrev"
+        aria-label="Previous month"
+      >
+        ←
+      </button>
 
-            <button id="printTicket" class="secondary-btn" type="button">
-              Print Ticket
-            </button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-content">
-        <a href="#home" class="logo">PLAY<span>ZONE</span></a>
-        <p>© 2026 PLAYZONE. All Rights Reserved.</p>
-      </div>
-    </footer>
-
-
-<div id="activityModal" class="modal hidden" role="dialog"
-     aria-modal="true" aria-labelledby="modalTitle">
-
-  <div class="modal-overlay"></div>
-
-  <div class="modal-content">
-    <button id="closeModal" class="modal-close"
-            type="button" aria-label="Close dialog">
-      &times;
-    </button>
-
-    <div id="modalImage" class="modal-image"></div>
-
-    <div class="modal-body">
-      <p class="eyebrow">THE EXPERIENCE</p>
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
-
-      <div class="modal-details">
-        <div>
-          <span>Duration</span>
-          <strong id="modalDuration"></strong>
-        </div>
-        <div>
-          <span>Guests</span>
-          <strong id="modalGuests"></strong>
-        </div>
-        <div>
-          <span>Price</span>
-          <strong id="modalPrice"></strong>
-        </div>
-      </div>
-
-      <button id="modalBook" class="primary-btn"
-              type="button">
-        Book This Experience
+      <button
+        type="button"
+        id="calendarNext"
+        aria-label="Next month"
+      >
+        →
       </button>
     </div>
   </div>
-</div>
 
+        <div class="calendar-weekdays">
+          <span>MON</span>
+          <span>TUE</span>
+          <span>WED</span>
+          <span>THU</span>
+          <span>FRI</span>
+           <span>SAT</span>
+           <span>SUN</span>
+        </div>
 
-    <script src="script.js"></script>
-  </body>
+         <div class="calendar-days" id="calendarDays"></div>
+
+       <div class="calendar-footer">
+          <span class="calendar-dot"></span>
+          <span>Available dates</span>
+
+          <strong id="calendarSelected">No date selected</strong>
+          </div>
+        </div>
+ 
+        <div class="booking-time-picker">
+        <div class="time-picker-heading">
+        <span>AVAILABLE SESSIONS</span>
+        <small>Select your preferred time</small>
+       </div>
+
+       <div
+           id="timeSlots"
+           class="time-slots"
+           role="group"
+           aria-label="Available booking times"
+         ></div>
+       </div>
+
+          <p
+            class="field-note"
+            id="availabilityMessage"
+            aria-live="polite"
+          >
+            Choose a date to see availability.
+          </p>
+
+          <label>
+            Promo code
+
+            <div class="promo-row">
+              <input
+                id="promo"
+                name="promo"
+                type="text"
+                maxlength="20"
+                placeholder="Optional code"
+                autocapitalize="characters"
+              >
+
+              <button
+                class="button button-ghost"
+                type="button"
+                id="applyPromo"
+              >
+                Apply
+              </button>
+            </div>
+          </label>
+
+          <p
+            class="field-note"
+            id="promoMessage"
+            aria-live="polite"
+          ></p>
+
+          <button
+            class="button submit-button"
+            type="submit"
+          >
+            Continue to checkout <span>↗</span>
+          </button>
+
+          <p class="fine-print">
+            Portfolio simulation. No real charges or venue
+            reservations are made.
+          </p>
+        </form>
+
+        <!-- BOOKING SUMMARY -->
+        <aside class="booking-summary">
+          <div class="summary-top">
+            <span class="kicker">YOUR RESERVATION</span>
+            <div class="summary-icon">✳</div>
+          </div>
+
+          <h3 id="summaryActivity">Bowling</h3>
+
+          <p id="summaryDescription">
+            A perfect game with your crew.
+          </p>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-line">
+            <span>Price per guest</span>
+            <strong id="summaryPrice">25 GEL</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Guests</span>
+            <strong id="summaryPeople">1</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Date</span>
+            <strong id="summaryDate">Not selected</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Time</span>
+            <strong id="summaryTime">Not selected</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Discount</span>
+            <strong id="summaryDiscount">0 GEL</strong>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-total">
+            <span>Total</span>
+            <strong id="totalPrice">25 GEL</strong>
+          </div>
+
+          <div class="summary-flag">
+            ✓ No payment required for this demo
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- ELECTRONIC TICKET -->
+      <section
+        class="ticket-panel hidden"
+        id="ticket"
+        aria-label="Your portfolio ticket"
+        aria-live="polite"
+      >
+        <div>
+          <span class="kicker">CHECKOUT SIMULATED</span>
+
+          <h3>
+            You're on the list<span>✳</span>
+          </h3>
+
+          <p>
+            This ticket demonstrates the completed booking flow.
+            It is not valid at a real venue.
+          </p>
+
+          <div
+            id="ticketQr"
+            class="ticket-qr"
+            aria-label="Portfolio QR ticket reference"
+          ></div>
+        </div>
+
+        <div
+          class="ticket-detail"
+          id="ticketDetails"
+        ></div>
+
+        <div class="ticket-actions">
+          <button
+            type="button"
+            class="button button-outline"
+            id="copyTicket"
+          >
+            Copy ticket ID
+          </button>
+
+          <button
+            type="button"
+            class="button"
+            id="printTicket"
+          >
+            Print ticket
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <!-- MY BOOKINGS -->
+    <section class="section section-dark" id="bookings">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <span class="kicker">06 / YOUR ACTIVITY</span>
+
+            <h2>
+              My demo<br>
+              <em>bookings.</em>
+            </h2>
+          </div>
+
+          <p>
+            Review or cancel bookings saved in this browser.
+            This is not an online customer account.
+          </p>
+        </div>
+
+        <div
+          id="bookingHistory"
+          class="history-grid"
+        ></div>
+
+        <div class="admin-note">
+          <strong>Manager preview</strong>
+
+          <p>
+            These same-device demo bookings are not a secure
+            admin system. A real dashboard needs authentication
+            and a server database.
+          </p>
+
+          <button
+            id="exportBookings"
+            class="button button-outline"
+            type="button"
+          >
+            Export demo bookings (CSV)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section shell faq-section" id="faq">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">QUESTIONS?</span>
+
+          <h2>
+            Good to<br>
+            <em>know.</em>
+          </h2>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Is this a real entertainment center?</summary>
+
+          <p>
+            PLAYZONE is a concept website and portfolio
+            demonstration. Activities, prices and events
+            are examples.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will I be charged when I book?</summary>
+
+          <p>
+            No. Payments are not connected.
+            Demo bookings are saved only in your browser.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will I get a ticket by email?</summary>
+
+          <p>
+            No. You can view and print a demo ticket locally.
+            Email delivery requires a secure backend.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I make a booking from another device?</summary>
+
+          <p>
+            This prototype does not sync between devices.
+            Live multi-user availability requires
+            server-side reservations.
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="shell footer-main">
+      <div>
+        <a class="brand" href="#top">
+          <span class="brand-mark">✳</span>
+          PLAY<span>ZONE</span>
+        </a>
+
+        <p>
+          Where ordinary ends and the good times begin.
+        </p>
+      </div>
+
+      <div>
+        <span>EXPLORE</span>
+        <a href="#experiences">Experiences</a>
+        <a href="#offers">Offers</a>
+        <a href="#gallery">Gallery</a>
+      </div>
+
+      <div>
+        <span>PLAN</span>
+        <a href="#booking">Book now</a>
+        <a href="#events">Events</a>
+        <a href="#bookings">My bookings</a>
+      </div>
+    </div>
+
+    <div class="shell footer-bottom">
+      <span>© 2026 PLAYZONE — Portfolio concept</span>
+      <span>DESIGNED FOR GOOD TIMES ✳</span>
+    </div>
+  </footer>
+
+  <!-- ACTIVITY MODAL -->
+  <div
+    class="overlay hidden"
+    id="activityModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div class="dialog activity-dialog">
+      <button
+        type="button"
+        class="close-dialog"
+        id="closeModal"
+        aria-label="Close details"
+      >
+        ×
+      </button>
+
+      <div class="modal-photo" id="modalImage"></div>
+
+      <div class="modal-copy">
+        <span class="kicker">THE EXPERIENCE</span>
+
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+
+        <div class="modal-facts">
+          <div>
+            <span>DURATION</span>
+            <strong id="modalDuration"></strong>
+          </div>
+
+          <div>
+            <span>GUESTS</span>
+            <strong id="modalGuests"></strong>
+          </div>
+
+          <div>
+            <span>FROM</span>
+            <strong id="modalPrice"></strong>
+          </div>
+        </div>
+
+        <button
+          class="button"
+          type="button"
+          id="modalBook"
+        >
+          Book this experience ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY LIGHTBOX -->
+  <div
+    class="overlay gallery-overlay hidden"
+    id="galleryLightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image gallery"
+  >
+    <button
+      class="close-dialog gallery-close"
+      type="button"
+      id="galleryClose"
+      aria-label="Close image"
+    >
+      ×
+    </button>
+
+    <button
+      class="gallery-arrow"
+      id="galleryPrev"
+      type="button"
+      aria-label="Previous image"
+    >
+      ←
+    </button>
+
+    <figure>
+      <img id="lightboxImage" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+      <small id="lightboxCounter"></small>
+    </figure>
+
+    <button
+      class="gallery-arrow"
+      id="galleryNext"
+      type="button"
+      aria-label="Next image"
+    >
+      →
+    </button>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+  <div
+    class="overlay hidden"
+    id="paymentModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="paymentTitle"
+  >
+    <div class="dialog payment-dialog">
+      <button
+        type="button"
+        id="paymentClose"
+        class="close-dialog"
+        aria-label="Close checkout"
+      >
+        ×
+      </button>
+
+      <span class="kicker">
+        SECURE CHECKOUT EXPERIENCE
+      </span>
+
+      <h2 id="paymentTitle">
+        Review payment
+      </h2>
+
+      <p
+        class="payment-step"
+        id="paymentDescription"
+      ></p>
+
+      <div
+        class="payment-total"
+        id="paymentTotal"
+      ></div>
+
+      <div
+        class="payment-options"
+        role="group"
+        aria-label="Payment method"
+      >
+        <label>
+          <input
+            type="radio"
+            name="paymentMethod"
+            value="card"
+            checked
+          >
+          Bank card
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="paymentMethod"
+            value="apple"
+          >
+          Apple Pay
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="paymentMethod"
+            value="google"
+          >
+          Google Pay
+        </label>
+      </div>
+
+      <p class="payment-disclaimer">
+        Simulation only — no card details are requested
+        and no money is charged.
+      </p>
+
+      <button
+        type="button"
+        id="paymentSuccess"
+        class="button"
+      >
+        Simulate successful payment ↗
+      </button>
+
+      <button
+        type="button"
+        id="paymentFail"
+        class="button pay-fail"
+      >
+        Simulate failed payment
+      </button>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div
+    class="toast hidden"
+    id="toast"
+    role="status"
+  ></div>
+
+</body>
 </html>
