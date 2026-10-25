@@ -2291,6 +2291,7 @@ img {
   .hero-video {
     object-fit: contain;
     object-position: center;
+    pointer-events: auto; /* Allow playback gestures in mobile in-app browsers. */
   }
 
   .hero-shade {

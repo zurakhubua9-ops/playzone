@@ -36,7 +36,7 @@ const ACTIVITIES = {
     description:
       "Get behind the wheel, chase the finish line and discover your competitive side on the track.",
     image:
-      "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=1100&q=85",
+      "https://images.unsplash.com/photo-1560990817-2a0037ed1246?w=1100&q=85",
     icon: "🏎️"
   }
 };
@@ -53,7 +53,7 @@ const TIMES = [
 const OFFERS = [
   {
     title: "First Play",
-    icon: "✳",
+    icon: "✦",
     code: "PLAY10",
     rate: 0.10,
     min: 1,
@@ -89,7 +89,8 @@ const GALLERY = [
     title: "Explore new worlds"
   },
   {
-    image: ACTIVITIES.bowling.image,
+    image:
+      "https://images.unsplash.com/photo-1580617971627-cffa74e39d1d?w=1400&q=85",
     title: "Make every moment count"
   }
 ];
@@ -139,6 +140,54 @@ let pendingCheckout = null;
 let lastTicketId = "";
 let focusBeforeDialog = null;
 let toastTimer;
+
+// On mobile in-app browsers, muted autoplay can still be blocked.
+// Expose native controls only when a tap is required, and remove them
+// again when playback starts so the video stays visually clean.
+function initializeHeroPlayback() {
+  const video = document.querySelector(".hero-video");
+  if (!video) return;
+
+  function tryPlay() {
+    if (document.hidden) return;
+
+    try {
+      const playback = video.play();
+
+      if (playback && typeof playback.catch === "function") {
+        playback.catch(() => {
+          video.controls = true;
+        });
+      }
+    } catch {
+      video.controls = true;
+    }
+  }
+
+  video.addEventListener("playing", () => {
+    video.controls = false;
+  });
+
+  video.addEventListener("pause", () => {
+    if (!document.hidden) video.controls = true;
+  });
+
+  video.addEventListener("click", () => {
+    if (video.paused) tryPlay();
+  });
+
+  video.addEventListener("error", () => {
+    video.style.display = "none"; // Keep the background image as fallback.
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && video.paused) tryPlay();
+  });
+
+  tryPlay();
+}
+
+initializeHeroPlayback();
 
 // HELPERS
 
