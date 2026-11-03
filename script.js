@@ -221,7 +221,16 @@ function bookings() {
       localStorage.getItem("playzone_portfolio_bookings") || "[]"
     );
 
-    return Array.isArray(value) ? value : [];
+    return Array.isArray(value) ? value.filter(record =>
+      record && typeof record.id === "string" &&
+      Object.hasOwn(ACTIVITIES, record.activityId) &&
+      /^\d{4}-\d{2}-\d{2}$/.test(record.date) &&
+      TIMES.includes(record.time) &&
+      Number.isInteger(record.guests) && record.guests > 0 &&
+      record.guests <= ACTIVITIES[record.activityId].seats &&
+      Number.isFinite(record.total) && record.total >= 0 &&
+      ["saved-plan", "paid-simulation", "cancelled"].includes(record.status)
+    ) : [];
   } catch {
     return [];
   }
@@ -457,7 +466,7 @@ function selectExperience(id) {
 function remainingSeats(id, date, time) {
   const reserved = bookings()
     .filter(booking =>
-      booking.status === "paid-simulation" &&
+      ["saved-plan", "paid-simulation"].includes(booking.status) &&
       booking.activityId === id &&
       booking.date === date &&
       booking.time === time
@@ -530,7 +539,7 @@ function updateAvailability() {
   $("availabilityMessage").textContent = !date
     ? "Select a date to see available sessions."
     : availableCount
-      ? "Availability shown for this browser's simulated bookings."
+      ? "Illustrative capacity, adjusted for plans saved on this device."
       : "No suitable sessions available for this date and group size.";
 
   $("availabilityMessage").classList.toggle(
@@ -766,7 +775,7 @@ function finishPayment(succeeded) {
     closeDialog(refs.payment);
 
     showToast(
-      "Payment simulation failed. Nothing was booked or charged."
+      "Your plan has not been saved. You can continue editing."
     );
 
     return;
@@ -792,6 +801,16 @@ function finishPayment(succeeded) {
     return;
   }
 
+  if (pendingCheckout.date < today() ||
+      (pendingCheckout.date === today() &&
+       pendingCheckout.time <= new Date().toTimeString().slice(0, 5))) {
+    pendingCheckout = null;
+    closeDialog(refs.payment);
+    updateAvailability();
+    showToast("This session has already started. Choose another time.");
+    return;
+  }
+
   const record = {
     id: `PZ-${
       crypto.randomUUID?.() ||
@@ -804,7 +823,7 @@ function finishPayment(succeeded) {
     guests: pendingCheckout.guests,
     discount: pendingCheckout.discount,
     total: pendingCheckout.total,
-    status: "paid-simulation",
+    status: "saved-plan",
     createdAt: new Date().toISOString()
   };
 
@@ -844,7 +863,7 @@ function finishPayment(succeeded) {
   });
 
   showToast(
-    "Successful payment simulated. Portfolio ticket ready!"
+    "Visit plan saved on this device. No reservation or charge."
   );
 }
 
@@ -880,7 +899,8 @@ function renderTicket(record, name, email) {
     ["Time", record.time],
     ["Guests", record.guests],
     ["Total", money(record.total)],
-    ["Payment", "Simulated (no charge)"]
+    ["Status", "Saved locally — not a venue reservation"],
+    ["Payment", "Not charged"]
   ];
 
   rows.forEach(([key, value]) => {
@@ -910,8 +930,7 @@ function renderBookingHistory() {
   if (!records.length) {
     root.innerHTML = `
       <div class="empty-state">
-        No bookings yet. Your completed checkout
-        simulations will appear here.
+        No plans yet. Choose an experience and save your first visit.
       </div>
     `;
 
@@ -932,7 +951,7 @@ function renderBookingHistory() {
             ${
               record.status === "cancelled"
                 ? "Cancelled"
-                : "Simulated"
+                : "Saved locally"
             }
           </span>
         </div>
@@ -955,7 +974,7 @@ function renderBookingHistory() {
                 type="button"
                 data-cancel="${escapeHtml(record.id)}"
               >
-                Cancel simulation
+                Cancel plan
               </button>
             `
             : ""
@@ -1266,8 +1285,9 @@ $("bookingHistory").addEventListener("click", event => {
   if (saveBookings(next)) {
     renderBookingHistory();
     updateAvailability();
+    if (lastTicketId === id) refs.ticket.classList.add("hidden");
 
-    showToast("Simulation cancelled.");
+    showToast("Plan cancelled.");
   } else {
     showToast("Could not update browser storage.");
   }
@@ -1674,3 +1694,11 @@ function initializePremiumCalendar() {
 }
 
 initializePremiumCalendar();
+
+// Keep capacity and history in sync when another tab changes a plan.
+window.addEventListener("storage", event => {
+  if (event.key === "playzone_portfolio_bookings" || event.key === null) {
+    renderBookingHistory(); updateAvailability(); updateSummary();
+    if (lastTicketId && !bookings().some(item => item.id === lastTicketId && item.status !== "cancelled")) refs.ticket.classList.add("hidden");
+  }
+});
