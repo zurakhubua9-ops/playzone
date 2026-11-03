@@ -171,7 +171,7 @@
 
         <p>
           A glimpse of the world we're creating.
-          These are demo visuals; venue photography will replace them.
+          A glimpse into the PLAYZONE atmosphere.
         </p>
       </div>
 
@@ -192,7 +192,7 @@
 
           <p>
             Gather your crew for something special.
-            Demo events are not actual scheduled sessions.
+            Explore ideas for your next visit. Dates are not scheduled.
           </p>
         </div>
 
@@ -212,7 +212,7 @@
         </div>
 
         <p>
-          Choose your adventure and lock in a demo reservation.
+          Choose your adventure and build your visit plan.
           No payment is taken or email sent.
         </p>
       </div>
@@ -409,8 +409,7 @@
           </button>
 
           <p class="fine-print">
-            Portfolio simulation. No real charges or venue
-            reservations are made.
+            Saved on this device only. No venue reservation or payment.
           </p>
         </form>
 
@@ -462,7 +461,7 @@
           </div>
 
           <div class="summary-flag">
-            ✓ No payment required for this demo
+            ✓ No payment or card details required
           </div>
         </aside>
 
@@ -472,25 +471,25 @@
       <section
         class="ticket-panel hidden"
         id="ticket"
-        aria-label="Your portfolio ticket"
+        aria-label="Your visit plan"
         aria-live="polite"
       >
         <div>
-          <span class="kicker">CHECKOUT SIMULATED</span>
+          <span class="kicker">PLAN SAVED</span>
 
           <h3>
-            You're on the list<span>✦</span>
+            Your next adventure<span>✦</span>
           </h3>
 
           <p>
-            This ticket demonstrates the completed booking flow.
+            Your plan is saved in this browser.
             It is not valid at a real venue.
           </p>
 
           <div
             id="ticketQr"
             class="ticket-qr"
-            aria-label="Portfolio QR ticket reference"
+            aria-label="Local plan reference"
           ></div>
         </div>
 
@@ -505,7 +504,7 @@
             class="button button-outline"
             id="copyTicket"
           >
-            Copy ticket ID
+            Copy reference
           </button>
 
           <button
@@ -513,7 +512,7 @@
             class="button"
             id="printTicket"
           >
-            Print ticket
+            Print plan
           </button>
         </div>
       </section>
@@ -527,7 +526,7 @@
             <span class="kicker">06 / YOUR ACTIVITY</span>
 
             <h2>
-              My demo<br>
+              My saved<br>
               <em>bookings.</em>
             </h2>
           </div>
@@ -544,12 +543,10 @@
         ></div>
 
         <div class="admin-note">
-          <strong>Manager preview</strong>
+          <strong>Keep a copy</strong>
 
           <p>
-            These same-device demo bookings are not a secure
-            admin system. A real dashboard needs authentication
-            and a server database.
+            Download your saved plans for your records. Plans stay on this device and are not sent to a venue.
           </p>
 
           <button
@@ -557,7 +554,7 @@
             class="button button-outline"
             type="button"
           >
-            Export demo bookings (CSV)
+            Export saved plans (CSV)
           </button>
         </div>
       </div>
@@ -592,7 +589,7 @@
 
           <p>
             No. Payments are not connected.
-            Demo bookings are saved only in your browser.
+            Visit plans are saved only in your browser.
           </p>
         </details>
 
@@ -600,8 +597,7 @@
           <summary>Will I get a ticket by email?</summary>
 
           <p>
-            No. You can view and print a demo ticket locally.
-            Email delivery requires a secure backend.
+            No. You can view and print your saved plan here. No email is sent.
           </p>
         </details>
 
@@ -609,9 +605,7 @@
           <summary>Can I make a booking from another device?</summary>
 
           <p>
-            This prototype does not sync between devices.
-            Live multi-user availability requires
-            server-side reservations.
+            Plans stay in the browser where you save them. Availability is illustrative and is not connected to a venue.
           </p>
         </details>
       </div>
@@ -769,11 +763,11 @@
       </button>
 
       <span class="kicker">
-        SECURE CHECKOUT EXPERIENCE
+        REVIEW YOUR VISIT
       </span>
 
       <h2 id="paymentTitle">
-        Review payment
+        Review your plan
       </h2>
 
       <p
@@ -786,43 +780,10 @@
         id="paymentTotal"
       ></div>
 
-      <div
-        class="payment-options"
-        role="group"
-        aria-label="Payment method"
-      >
-        <label>
-          <input
-            type="radio"
-            name="paymentMethod"
-            value="card"
-            checked
-          >
-          Bank card
-        </label>
 
-        <label>
-          <input
-            type="radio"
-            name="paymentMethod"
-            value="apple"
-          >
-          Apple Pay
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="paymentMethod"
-            value="google"
-          >
-          Google Pay
-        </label>
-      </div>
 
       <p class="payment-disclaimer">
-        Simulation only — no card details are requested
-        and no money is charged.
+        Save this plan on your device. No payment is taken, no email is sent and no venue reservation is made.
       </p>
 
       <button
@@ -830,7 +791,7 @@
         id="paymentSuccess"
         class="button"
       >
-        Simulate successful payment ↗
+        Save visit plan ↗
       </button>
 
       <button
@@ -838,7 +799,7 @@
         id="paymentFail"
         class="button pay-fail"
       >
-        Simulate failed payment
+        Back to editing
       </button>
     </div>
   </div>
